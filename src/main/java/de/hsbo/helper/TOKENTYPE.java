@@ -1,0 +1,18 @@
+package de.hsbo.helper;
+
+public enum TOKENTYPE {
+    INVALID,
+	NUMBER,
+	ADD,
+	SUBSTRACT,
+	MULTIPLY,
+	DIVIDE,
+	OPEN_PARENTHESIS,
+	CLOSE_PARENTHESIS,
+	LETTER,
+	WHITESPACE,
+    START,
+	END,
+	DISPLAY,
+	DECLARE;
+}

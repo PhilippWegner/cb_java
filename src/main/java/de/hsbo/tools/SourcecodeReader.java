@@ -11,7 +11,7 @@ public class SourcecodeReader {
         try {
             Scanner scanner = new Scanner(new File(sourcecodeFilePath));
             while(scanner.hasNextLine()) {
-                sb.append(scanner.nextLine() + " ");
+                sb.append(scanner.nextLine() + "\n");
             }
             scanner.close();
             sourcecode = sb.toString();

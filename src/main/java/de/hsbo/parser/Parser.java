@@ -1,8 +1,8 @@
-package de.hsbo.analysis.syntactial;
+package de.hsbo.parser;
 
 import java.util.ArrayList;
 
-import de.hsbo.helper.Token;
+import de.hsbo.lexer.Token;
 
 public class Parser {
     private ArrayList<Token> tokenList;

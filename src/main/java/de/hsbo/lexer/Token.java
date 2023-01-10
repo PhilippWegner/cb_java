@@ -1,4 +1,4 @@
-package de.hsbo.helper;
+package de.hsbo.lexer;
 
 public class Token {
     private TOKENTYPE tokentype;
@@ -26,7 +26,7 @@ public class Token {
     }
 
     public String toString() {
-        if(this.tokentype == TOKENTYPE.NUMBER | this.tokentype == TOKENTYPE.LETTER) {
+        if(this.tokentype == TOKENTYPE.NUMBER | this.tokentype == TOKENTYPE.IDENTIFIER) {
             return this.tokentype + "(" + this.value + ")";
         }
         return this.tokentype + "";

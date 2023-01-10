@@ -1,10 +1,10 @@
-package de.hsbo;
+package de.hsbo.main;
 
 import java.util.ArrayList;
 
-import de.hsbo.analysis.lexical.Lexer;
-import de.hsbo.analysis.syntactial.Parser;
-import de.hsbo.helper.Token;
+import de.hsbo.lexer.Lexer;
+import de.hsbo.lexer.Token;
+import de.hsbo.parser.Parser;
 import de.hsbo.tools.SourcecodeReader;
 
 public class Main {

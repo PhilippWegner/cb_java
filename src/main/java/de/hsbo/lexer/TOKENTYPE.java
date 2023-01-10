@@ -1,4 +1,4 @@
-package de.hsbo.helper;
+package de.hsbo.lexer;
 
 public enum TOKENTYPE {
     INVALID,
@@ -9,10 +9,14 @@ public enum TOKENTYPE {
 	DIVIDE,
 	OPEN_PARENTHESIS,
 	CLOSE_PARENTHESIS,
-	LETTER,
+	IDENTIFIER,
 	WHITESPACE,
-    START,
+    BEGIN,
 	END,
 	DISPLAY,
-	DECLARE;
+	DECLARE,
+	COMMA,
+	VAR,
+	NEWLINE,
+	FUNCTION;
 }

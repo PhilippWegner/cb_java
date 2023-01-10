@@ -1,9 +1,6 @@
-package de.hsbo.analysis.lexical;
+package de.hsbo.lexer;
 
 import java.util.ArrayList;
-
-import de.hsbo.helper.TOKENTYPE;
-import de.hsbo.helper.Token;
 
 public class Lexer {
     private String sourcecode;
@@ -31,12 +28,10 @@ public class Lexer {
             // read character at current position
             this.currentCharacter = this.sourcecode.charAt(this.currentPosition);
 
-            if (Character.isWhitespace(this.currentCharacter)) {
-                // different approach with continue!
-                this.currentToken = new Token(TOKENTYPE.WHITESPACE, null);
+            if (this.currentCharacter == ' ' || this.currentCharacter == '\t') {
+                // skip
                 this.movePositionForward();
-                // continue;
-                // '(' as char for comparing
+                continue;
             } else if (this.currentCharacter == '(') {
                 this.currentToken = new Token(TOKENTYPE.OPEN_PARENTHESIS, "(");
                 this.movePositionForward();
@@ -58,6 +53,12 @@ public class Lexer {
             } else if (this.currentCharacter == '=') {
                 this.currentToken = new Token(TOKENTYPE.DECLARE, "=");
                 this.movePositionForward();
+            } else if (this.currentCharacter == ',') {
+                this.currentToken = new Token(TOKENTYPE.COMMA, ",");
+                this.movePositionForward();
+            } else if (this.currentCharacter == '\n') {
+                this.currentToken = new Token(TOKENTYPE.NEWLINE, "\n");
+                this.movePositionForward();
             } else if (Character.isDigit(this.currentCharacter)) {
                 String valueAsString = this.getNumberValue();
                 TOKENTYPE tokentype = TOKENTYPE.NUMBER;
@@ -72,22 +73,11 @@ public class Lexer {
             }
             // add currentToken to tokenList
             this.tokenList.add(this.currentToken);
-
-            // remove Whitespaces from ArrayList
-            this.removeWhitespaceFromTokenList();
         }
     }
 
     private void movePositionForward() {
         this.currentPosition++;
-    }
-
-    private void removeWhitespaceFromTokenList() {
-        for (int i = 0; i < this.tokenList.size(); i++) {
-            if (this.tokenList.get(i).getTokentype() == TOKENTYPE.WHITESPACE) {
-                this.tokenList.remove(i);
-            }
-        }
     }
 
     private String getNumberValue() {
@@ -106,7 +96,8 @@ public class Lexer {
     // merge followed Letters to String
     private String getLetterValue() {
         StringBuilder valueAsStringBuilder = new StringBuilder();
-        while (Character.isLetter(this.currentCharacter)) {
+        // Identifiers can contain digits too!
+        while (Character.isLetterOrDigit(this.currentCharacter)) {
             valueAsStringBuilder.append(this.currentCharacter);
             this.movePositionForward();
             if (this.currentPosition >= this.sourcecodeLength) {
@@ -119,13 +110,15 @@ public class Lexer {
 
     // check if String Value is a keyword and return new TOKENTYPE
     private TOKENTYPE getTokenTypeEnum(String valueAsString) {
-        TOKENTYPE tokentype = TOKENTYPE.LETTER;
-        if (valueAsString.equalsIgnoreCase("START")) {
-            tokentype = TOKENTYPE.START;
+        TOKENTYPE tokentype = TOKENTYPE.IDENTIFIER;
+        if (valueAsString.equalsIgnoreCase("BEGIN")) {
+            tokentype = TOKENTYPE.BEGIN;
         } else if (valueAsString.equalsIgnoreCase("END")) {
             tokentype = TOKENTYPE.END;
         } else if (valueAsString.equalsIgnoreCase("DISPLAY")) {
             tokentype = TOKENTYPE.DISPLAY;
+        } else if (valueAsString.equalsIgnoreCase("FUNCTION")) {
+            tokentype = TOKENTYPE.FUNCTION;
         }
         return tokentype;
     }

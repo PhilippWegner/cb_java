@@ -1,3 +1,7 @@
-start
-2+3 * 11
+function add(a, b)
+begin
+var x = a+b
+return x
 end
+
+add(5, 3)

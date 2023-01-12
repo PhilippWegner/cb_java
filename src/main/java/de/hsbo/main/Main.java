@@ -11,6 +11,7 @@ import de.hsbo.parser.Parser;
 public class Main {
 
     public static int tempCounter = 0;
+
     public static void main(String[] args) throws FileNotFoundException {
         // path to example-code.dmvp file
         String path = "example-code.dmvp";
@@ -41,7 +42,6 @@ public class Main {
         Node parseTree = parser.parse();
         System.out.println("Parser tokens:");
         System.out.println(parseTree);
-        
 
         // ------
         System.out.println("-----------------");

@@ -7,5 +7,6 @@ package de.hsbo.inter;
 public abstract class Node {
     // abstract evaluate method to be implemented by subclasses
     public abstract double evaluate();
+
     public abstract String toString();
 }

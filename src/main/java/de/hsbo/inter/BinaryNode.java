@@ -1,6 +1,7 @@
 package de.hsbo.inter;
 
 import de.hsbo.lexer.Token;
+import de.hsbo.main.Main;
 
 // BinaryNode consists left-node, right-node and binary-operator-node 
 // overrides the evaluate() function 
@@ -56,5 +57,14 @@ public class BinaryNode extends Node {
             default:
                 throw new RuntimeException("Invalid operator type.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "left=" + left +
+                ", operator=" + operator +
+                ", right=" + right +
+                "}";
     }
 }

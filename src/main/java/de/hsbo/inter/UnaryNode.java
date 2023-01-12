@@ -1,6 +1,7 @@
 package de.hsbo.inter;
 
 import de.hsbo.lexer.Token;
+import de.hsbo.main.Main;
 
 // UnaryNode consists right-node and unary-operator-node
 // overrides the evaluate() function
@@ -13,7 +14,6 @@ import de.hsbo.lexer.Token;
 //           \
 //            2
 
-
 // ==> -2 * 3
 //
 //          *
@@ -21,7 +21,6 @@ import de.hsbo.lexer.Token;
 //        -   3
 //         \
 //          2
-
 
 public class UnaryNode extends Node {
     private Token operator;
@@ -44,5 +43,13 @@ public class UnaryNode extends Node {
             default:
                 throw new RuntimeException("Invalid operator type.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "UnaryNode{" +
+                "operator=" + operator +
+                ", right=" + right +
+                "}";
     }
 }

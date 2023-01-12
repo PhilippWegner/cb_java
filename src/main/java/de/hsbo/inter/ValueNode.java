@@ -17,6 +17,11 @@ public class ValueNode extends Node {
     public double evaluate() {
         return Double.parseDouble(value.value);
     }
+
+    @Override
+    public String toString() {
+        return value.toString();
+    }
 }
 
 

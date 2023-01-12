@@ -1,5 +1,6 @@
 package de.hsbo.parser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hsbo.lexer.TYPE;
@@ -18,7 +19,8 @@ public class Parser {
     }
 
     public Node parse() {
-        return expression();
+        Node node = expression();
+        return node;
     }
 
     private Node expression() {
@@ -45,10 +47,12 @@ public class Parser {
         if (match(TYPE.PLUS, TYPE.MINUS)) {
             Token operator = previous();
             Node right = factor();
-            return new UnaryNode(operator, right);
+            Node node = new UnaryNode(operator, right);
+            return node;
         } else if (match(TYPE.INTEGER, TYPE.FLOAT)) {
             Token value = previous();
-            return new ValueNode(value);
+            Node node = new ValueNode(value);
+            return node;
         } else if (match(TYPE.LEFT_PAREN)) {
             Node expression = this.expression();
             consume(TYPE.RIGHT_PAREN, "Expect ')' after expression.");

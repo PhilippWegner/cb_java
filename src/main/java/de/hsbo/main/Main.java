@@ -15,10 +15,10 @@ public class Main {
         // read code from file
         String code = CodeReader.readCodeFromFileAString(path);
         // print code
+        System.out.println("Code:");
         System.out.println(code);
 
         // ------
-        System.out.println();
         System.out.println("-----------------");
         System.out.println();
 
@@ -29,7 +29,6 @@ public class Main {
         System.out.println(tokens);
 
         // ------
-        System.out.println();
         System.out.println("-----------------");
         System.out.println();
 

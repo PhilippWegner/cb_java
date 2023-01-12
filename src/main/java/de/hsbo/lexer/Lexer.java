@@ -20,22 +20,22 @@ public class Lexer {
                 // check if digits are Integer or Float
                 tokens.add(tokenizeNumber());
             } else if (currentChar == '+') {
-                tokens.add(new Token(TYPE.PLUS, "+"));
+                tokens.add(new Token(TYPE.PLUS));
                 position++;
             } else if (currentChar == '-') {
-                tokens.add(new Token(TYPE.MINUS, "-"));
+                tokens.add(new Token(TYPE.MINUS));
                 position++;
             } else if (currentChar == '*') {
-                tokens.add(new Token(TYPE.MULTIPLY, "*"));
+                tokens.add(new Token(TYPE.MULTIPLY));
                 position++;
             } else if (currentChar == '/') {
-                tokens.add(new Token(TYPE.DIVIDE, "/"));
+                tokens.add(new Token(TYPE.DIVIDE));
                 position++;
             } else if (currentChar == '(') {
-                tokens.add(new Token(TYPE.LEFT_PAREN, "("));
+                tokens.add(new Token(TYPE.LEFT_PAREN));
                 position++;
             } else if (currentChar == ')') {
-                tokens.add(new Token(TYPE.RIGHT_PAREN, ")"));
+                tokens.add(new Token(TYPE.RIGHT_PAREN));
                 position++;
             } else if (Character.isWhitespace(currentChar)) {
                 position++;

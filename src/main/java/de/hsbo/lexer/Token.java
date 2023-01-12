@@ -1,34 +1,24 @@
 package de.hsbo.lexer;
 
 public class Token {
-    private TOKENTYPE tokentype;
-    private String value;
+    public final TYPE type;
+    public final String value;
 
-    public Token(TOKENTYPE tokentype, String value) {
-        this.tokentype = tokentype;
+
+    public Token(TYPE type, String value) {
+        this.type = type;
         this.value = value;
     }
 
-    public TOKENTYPE getTokentype() {
-        return this.tokentype;
-    }
-
-    public void setTokentype(TOKENTYPE tokentype) {
-        this.tokentype = tokentype;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
+    public Token(TYPE type) {
+        this.type = type;
+        this.value = null;
     }
 
     public String toString() {
-        if(this.tokentype == TOKENTYPE.NUMBER | this.tokentype == TOKENTYPE.IDENTIFIER) {
-            return this.tokentype + "(" + this.value + ")";
+        if (value == null) {
+            return type.toString();
         }
-        return this.tokentype + "";
+        return type.toString() + "(" + value + ")";
     }
 }

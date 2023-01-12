@@ -3,6 +3,7 @@ package de.hsbo.main;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import de.hsbo.inter.Node;
 import de.hsbo.lexer.Lexer;
 import de.hsbo.lexer.Token;
 import de.hsbo.parser.Parser;
@@ -35,8 +36,9 @@ public class Main {
         // create parser
         System.out.println("Create parser");
         Parser parser = new Parser(tokens);
-        double result = parser.parse();
-        System.out.println(result);
+        Node parseTree = parser.parse();
+        double result = parseTree.evaluate();
+        System.out.println("Result: " + result);
     
     
 

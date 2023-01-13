@@ -16,3 +16,27 @@ The final step to compiling the source code is to generate the executable code. 
 
 ### Step 5 - Test and Debug
 The final step to writing a compiler for a new programming language in Java is to test and debug the compiler. This includes testing the Lexer, Parser, Semantic Analyzer, and Code Generator to ensure that the compiler is working correctly. Additionally, any bugs or errors that are found should be fixed.
+
+
+#### Parser Methods
+1. parse(): This is the entry point of the parser. It calls the expression() method, which starts the parsing process. It returns a Node object, which is the result of parsing the input tokens.
+
+2. expression(): This method is used to parse expressions in the input. It starts by calling the term() method to get the left operand, then it looks for any plus or minus operators, and if found, it calls the term() method again to get the right operand. It then creates a new BinaryNode object with the left and right operands and the operator and sets it as the left operand for the next iteration. It returns the final Node object that represents the parsed expression.
+
+3. term(): This method is used to parse terms in the input. It works similar to the expression() method but it looks for any multiply or divide operators.
+
+4. factor(): This method is used to parse factors in the input. It starts by checking if the current token is a unary operator (plus or minus), if yes, it calls the factor() method again to get the right operand and creates a new UnaryNode object with the operator and the right operand. If the current token is an integer or float, it creates a new ValueNode object with the token's value. If the current token is a left parenthesis, it calls the expression() method to get the expression inside the parenthesis and returns it.
+
+5. match(): This method is used to match the current token with a list of expected types. If a match is found, it advances the current token pointer and returns true, otherwise it returns false.
+
+6. consume(): This method is used to consume a specific token and throw an exception if it is not found.
+
+7. check(): This method is used to check if the current token is of a specific type.
+
+8. advance(): This method is used to advance the current token pointer.
+
+9. isAtEnd(): This method is used to check if the end of the token list has been reached.
+
+10. peek(): This method is used to get the current token without advancing the current token pointer.
+
+11. previous(): This method is used to get the previous token.

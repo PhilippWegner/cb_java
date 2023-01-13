@@ -1,6 +1,4 @@
 package de.hsbo.parser;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hsbo.lexer.TYPE;
@@ -23,6 +21,7 @@ public class Parser {
         return node;
     }
 
+    // 
     private Node expression() {
         Node left = term();
         while (match(TYPE.PLUS, TYPE.MINUS)) {

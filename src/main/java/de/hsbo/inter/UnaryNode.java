@@ -1,7 +1,6 @@
 package de.hsbo.inter;
 
 import de.hsbo.lexer.Token;
-import de.hsbo.main.Main;
 
 // UnaryNode consists right-node and unary-operator-node
 // overrides the evaluate() function
@@ -23,8 +22,8 @@ import de.hsbo.main.Main;
 //          2
 
 public class UnaryNode extends Node {
-    private Token operator;
-    private Node right;
+    public Token operator;
+    public Node right;
 
     public UnaryNode(Token operator, Node right) {
         this.operator = operator;

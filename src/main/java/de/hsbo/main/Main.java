@@ -3,6 +3,7 @@ package de.hsbo.main;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import de.hsbo.inter.IntermediateCodeGenerator;
 import de.hsbo.inter.Node;
 import de.hsbo.lexer.Lexer;
 import de.hsbo.lexer.Token;
@@ -26,7 +27,6 @@ public class Main {
         System.out.println();
 
         // create lexer
-        System.out.println("Create lexer");
         System.out.println("Lexer tokens:");
         Lexer lexer = new Lexer(code);
         List<Token> tokens = lexer.tokenize();
@@ -37,7 +37,6 @@ public class Main {
         System.out.println();
 
         // create parser
-        System.out.println("Create parser");
         Parser parser = new Parser(tokens);
         Node parseTree = parser.parse();
         System.out.println("Parser tokens:");
@@ -47,11 +46,32 @@ public class Main {
         System.out.println("-----------------");
         System.out.println();
 
-        double result = parseTree.evaluate();
-        System.out.println("Result: " + result);
+        // create node printer
+        System.out.println("Create Syntax Tree:");
+        NodePrinter nodePrinter = new NodePrinter(parseTree);
+        nodePrinter.print();
 
         // ------
         System.out.println("-----------------");
         System.out.println();
+
+        // create intermediate code generator
+        System.out.println("Create Intermediate Code:");
+        IntermediateCodeGenerator intermediateCodeGenerator = new IntermediateCodeGenerator(parseTree);
+        List<String> intermediateCode = intermediateCodeGenerator.generate();
+        intermediateCodeGenerator.print();
+
+        // ------
+        System.out.println("-----------------");
+        System.out.println();
+
+        double result = parseTree.evaluate();
+        System.out.println("Mathematical Result: " + result);
+
+        // ------
+        System.out.println("-----------------");
+        System.out.println();
+
+        
     }
 }

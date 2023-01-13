@@ -57,7 +57,7 @@ public class Parser {
             consume(TYPE.RIGHT_PAREN, "Expect ')' after expression.");
             return expression;
         }
-        throw new RuntimeException("Expect expression.");
+        throw new RuntimeException("Expect expression, but found " + peek().type + "");
     }
 
     private boolean match(TYPE... types) {

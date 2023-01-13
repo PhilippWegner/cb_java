@@ -40,7 +40,7 @@ public class Lexer {
             } else if (Character.isWhitespace(currentChar)) {
                 position++;
             } else {
-                throw new IllegalArgumentException("Invalid character at position " + position);
+                throw new IllegalArgumentException("Invalid character '" + currentChar + "' at position " + position);
             }
         }
         tokens.add(new Token(TYPE.EOF));

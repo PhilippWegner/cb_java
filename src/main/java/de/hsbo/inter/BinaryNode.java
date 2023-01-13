@@ -1,7 +1,6 @@
 package de.hsbo.inter;
 
 import de.hsbo.lexer.Token;
-import de.hsbo.main.Main;
 
 // BinaryNode consists left-node, right-node and binary-operator-node 
 // overrides the evaluate() function 
@@ -30,9 +29,9 @@ import de.hsbo.main.Main;
 //        2   3
 
 public class BinaryNode extends Node {
-    private Node left;
-    private Token operator;
-    private Node right;
+    public Node left;
+    public Token operator;
+    public Node right;
 
     public BinaryNode(Node left, Token operator, Node right) {
         this.left = left;

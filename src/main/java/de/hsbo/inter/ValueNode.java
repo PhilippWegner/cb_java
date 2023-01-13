@@ -7,7 +7,7 @@ import de.hsbo.lexer.Token;
 // returns value of value-node
 
 public class ValueNode extends Node {
-    private Token value;
+    public Token value;
 
     public ValueNode(Token value) {
         this.value = value;

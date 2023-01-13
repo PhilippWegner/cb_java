@@ -15,7 +15,13 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         // path to example-code.dmvp file
-        String path = "example-code.dmvp";
+        // String path = "example-code.dmvp";
+        String path = args[0];
+        // check if file exists
+        if (!CodeReader.checkFileExists(path)) {
+            System.out.println("File does not exist!");
+            return;
+        }
         // read code from file
         String code = CodeReader.readCodeFromFileAString(path);
         // print code

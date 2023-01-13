@@ -25,4 +25,9 @@ public class CodeReader {
         // return code
         return code;
     }
+
+    public static boolean checkFileExists(String path) {
+        File file = new File(path);
+        return file.exists();
+    }
 }

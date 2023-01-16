@@ -40,3 +40,7 @@ The final step to writing a compiler for a new programming language in Java is t
 10. peek(): This method is used to get the current token without advancing the current token pointer.
 
 11. previous(): This method is used to get the previous token.
+
+```properties
+java -jar .\target\libs\compilerbau-1.0-SNAPSHOT-jar-with-dependencies.jar .\example-code-4.dmvp
+```

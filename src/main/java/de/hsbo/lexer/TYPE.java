@@ -4,12 +4,12 @@ public enum TYPE {
     // Keywords
     
     // Special characters
-    EOF, INVALID,
+    EOF,
     // Operators
     PLUS, MINUS, MULTIPLY, DIVIDE, 
     // Delimiters
     LEFT_PAREN, RIGHT_PAREN,
     // Literals
-    INTEGER, FLOAT, STRING;
+    INTEGER, FLOAT;
 
 }

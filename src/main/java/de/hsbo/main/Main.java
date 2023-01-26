@@ -11,12 +11,12 @@ import de.hsbo.parser.Parser;
 
 public class Main {
 
-    public static int tempCounter = 0;
-
     public static void main(String[] args) throws FileNotFoundException {
         // path to example-code.dmvp file
         // String path = "example-code.dmvp";
         String path = args[0];
+        // print path
+        System.out.println("Path: " + path);
         // check if file exists
         if (!CodeReader.checkFileExists(path)) {
             System.out.println("File does not exist!");
@@ -64,7 +64,7 @@ public class Main {
         // create intermediate code generator
         System.out.println("Create Intermediate Code:");
         IntermediateCodeGenerator intermediateCodeGenerator = new IntermediateCodeGenerator(parseTree);
-        List<String> intermediateCode = intermediateCodeGenerator.generate();
+        intermediateCodeGenerator.generate();
         intermediateCodeGenerator.print();
 
         // ------
@@ -78,6 +78,5 @@ public class Main {
         System.out.println("-----------------");
         System.out.println();
 
-        
     }
 }

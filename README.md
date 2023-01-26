@@ -1,5 +1,9 @@
 # compilerbau
 
+```powershell
+java -jar .\compilerbau-dmvp.jar .\example-code-1.dmvp
+```
+
 ## Write a compiler for a new programming language in Java
 
 ### Step 1 - Create the Lexer

@@ -19,9 +19,11 @@ public class CodeReader {
 
         // join all lines to one string
         String code = String.join("\n", lines);
+        // 2.1 
+        // * 3 
+        // + 4
+        // => 2.1 \n * 3 \n + 4
         
-
-
         // return code
         return code;
     }

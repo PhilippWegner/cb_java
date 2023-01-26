@@ -51,6 +51,10 @@ public class Lexer {
     private Token tokenizeNumber() {
         int dotCounter = 0;
         String numberAsString = "";
+
+        // 221.5
+        // 2 => 22; 2, 2 => 22; 22, 1 => 221; 221, . => 221.; 221., 5 => 221.5
+        // ==> 221.5
         
         while (position < rawCode.length() && (Character.isDigit(rawCode.charAt(position)) || rawCode.charAt(position) == '.')) {
             if (rawCode.charAt(position) == '.') {
